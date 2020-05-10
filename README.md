@@ -7,7 +7,7 @@ Builds with sbt v 1.3.10:
 sbt compile
 ```
 
-Tun tests with sbt:
+Run tests with sbt:
 
 ```bash
 sbt test
