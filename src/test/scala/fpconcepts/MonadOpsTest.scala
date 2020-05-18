@@ -6,7 +6,7 @@ import org.scalatest.wordspec.AnyWordSpec
 
 class MonadOpsTest extends AnyWordSpec with Matchers {
   val divideToMonad: Int ⇒ Maybe[Double] = i ⇒
-    if (i == 0) NotADickyBird
+    if (i == 0) Empty
     else Just(i / 2)
 
   val divide: Int ⇒ Double = i ⇒ i / 2 // what if is 0
@@ -19,7 +19,7 @@ class MonadOpsTest extends AnyWordSpec with Matchers {
 
       result shouldBe Just(21d)
 
-      maybeMonad.flatMap(maybeMonad.unit(0))(divideToMonad) shouldBe NotADickyBird
+      maybeMonad.flatMap(maybeMonad.unit(0))(divideToMonad) shouldBe Empty
 
     }
 
@@ -28,15 +28,15 @@ class MonadOpsTest extends AnyWordSpec with Matchers {
     }
 
     "sequence a list of maybe monads, stop if NotADickyBird" in {
-      val monads = List(Just(1), Just(2), NotADickyBird, Just(3))
+      val monads = List(Just(1), Just(2), Empty, Just(3))
 
       val result = maybeMonad.sequence(monads)
 
-      result shouldBe NotADickyBird
+      result shouldBe Empty
     }
 
     "sequence a list of maybe monads, discard if NotADickyBird" in {
-      val monads = List(Just(1), Just(2), NotADickyBird, Just(3))
+      val monads = List(Just(1), Just(2), Empty, Just(3))
 
       val result = maybeMonad.sequence(monads)
 
@@ -69,7 +69,7 @@ class MonadOpsTest extends AnyWordSpec with Matchers {
         .flatMap(check)
 
       charOpt shouldBe Some('g')
-      charNone shouldBe None
+      charNone shouldBe Empty
     }
   }
 }

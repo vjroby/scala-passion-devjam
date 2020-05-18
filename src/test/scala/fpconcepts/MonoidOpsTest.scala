@@ -10,7 +10,8 @@ class MonoidOpsTest extends AnyWordSpec with Matchers {
   "Monoid Operations" should {
     "handle string operations" in {
       val words = List("Bear", "", "Fox", "Horse", "Turtle", stringMonoid.empty)
-      val concatenatedWords = words.foldRight(stringMonoid.empty)(stringMonoid.operation)
+      // reduce
+      val concatenatedWords = words.foldRight(stringMonoid.empty)((a, b) ⇒ stringMonoid.operation(a, b))
 
       concatenatedWords shouldBe "BearFoxHorseTurtle"
 

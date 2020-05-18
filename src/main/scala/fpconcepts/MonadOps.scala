@@ -17,17 +17,17 @@ trait Monad[M[_]] extends Functor[M] {
    */
   def flatMap[T, R](mt: M[T])(f: T ⇒ M[R]): M[R]
 
-  override def map[T, R](ft: M[T])(f: T ⇒ R): M[R] = ???
+//  override def map[T, R](ft: M[T])(f: T ⇒ R): M[R] = ???
 
   // extra method
-  def sequence[T](listMonad: List[M[T]]): M[List[T]] = ???
+//  def sequence[T](listMonad: List[M[T]]): M[List[T]] = ???
 }
 
 sealed trait Maybe[+T]
 
 final case class Just[+T](v: T) extends Maybe[T]
 
-object NotADickyBird extends Maybe[Nothing]
+object Empty extends Maybe[Nothing]
 
 
 object MonadOps {

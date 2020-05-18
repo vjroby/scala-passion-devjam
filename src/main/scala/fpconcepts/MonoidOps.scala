@@ -22,7 +22,5 @@ object MonoidOps {
 
   val intMonoid: Monoid[Int] = ???
 
-  def listMonoid[A]: Monoid[List[A]] = ???
-
   def productMonoid[A, B](A: Monoid[A], B: Monoid[B]): Monoid[(A, B)] = ???
 }
