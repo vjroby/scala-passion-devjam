@@ -28,19 +28,19 @@ class MonadOpsTest extends AnyWordSpec with Matchers {
     }
 
     "sequence a list of maybe monads, stop if NotADickyBird" in {
-      val monads = List(Just(1), Just(2), Empty, Just(3))
-
-      val result = maybeMonad.sequence(monads)
-
-      result shouldBe Empty
+//      val monads = List(Just(1), Just(2), Empty, Just(3))
+//
+//      val result = maybeMonad.sequence(monads)
+//
+//      result shouldBe Empty
     }
 
     "sequence a list of maybe monads, discard if NotADickyBird" in {
-      val monads = List(Just(1), Just(2), Empty, Just(3))
-
-      val result = maybeMonad.sequence(monads)
-
-      //      result shouldBe Just(List(1,2,3))
+//      val monads = List(Just(1), Just(2), Empty, Just(3))
+//
+//      val result = maybeMonad.sequence(monads)
+//
+//            result shouldBe Just(List(1,2,3))
     }
 
 

@@ -1,6 +1,6 @@
 package fpconcepts
 
-
+// M[_] <- higher kinder types
 trait Monad[M[_]] extends Functor[M] {
   /**
    * @return a type T monad
@@ -16,8 +16,6 @@ trait Monad[M[_]] extends Functor[M] {
    * @tparam R output type
    */
   def flatMap[T, R](mt: M[T])(f: T ⇒ M[R]): M[R]
-
-//  override def map[T, R](ft: M[T])(f: T ⇒ R): M[R] = ???
 
   // extra method
 //  def sequence[T](listMonad: List[M[T]]): M[List[T]] = ???
